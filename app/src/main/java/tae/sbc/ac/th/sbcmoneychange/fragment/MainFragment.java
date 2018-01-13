@@ -18,11 +18,20 @@ import tae.sbc.ac.th.sbcmoneychange.R;
 
 public class MainFragment extends Fragment{
 
+    private double aDouble = 33.12;
+
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
 //        calculate controller
+        calculateController();
+
+
+    }//main method
+
+    private void calculateController() {
         Button button = getView().findViewById(R.id.btnCalculate);
         button.setOnClickListener(new OnClickListener() {
             @Override
@@ -30,14 +39,13 @@ public class MainFragment extends Fragment{
 //                Replace Fragment
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentMainFragment, new CalculateFragment())
+                        .replace(R.id.contentMainFragment, CalculateFragment
+                                .calculateInstance(aDouble))
                         .addToBackStack(null)
                         .commit();
             }
         });
-
-
-    }//main method
+    }
 
     @Nullable
     @Override

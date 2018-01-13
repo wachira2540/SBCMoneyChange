@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.security.Key;
 
 import tae.sbc.ac.th.sbcmoneychange.MainActivity;
 import tae.sbc.ac.th.sbcmoneychange.R;
@@ -17,11 +20,38 @@ import tae.sbc.ac.th.sbcmoneychange.R;
 
 public class CalculateFragment extends Fragment{
 
+    private double aDouble;
+
+    public static CalculateFragment calculateInstance(double factorDouble) {
+        CalculateFragment calculateFragment = new CalculateFragment();
+        Bundle bundle = new Bundle();
+        bundle.putDouble("Factor", factorDouble);
+        calculateFragment.setArguments(bundle);
+        return calculateFragment;
+    }
+
+
+
+
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
 //        Toolbar Controller
+        toolbarController();
+
+
+        aDouble = getArguments().getDouble("Factor");
+        Log.d("13Jan", "Factor ==> " + aDouble);
+    }//Main Method
+
+
+
+
+
+
+    private void toolbarController() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarCalculate);
         ((MainActivity)getActivity())
                 .setSupportActionBar(toolbar);
@@ -41,9 +71,12 @@ public class CalculateFragment extends Fragment{
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
+    }
+
+//    get value form argument
 
 
-    }//Main Method
+
 
     @Nullable
     @Override
