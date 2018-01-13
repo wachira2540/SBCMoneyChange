@@ -70,9 +70,13 @@ public class CalculateFragment extends Fragment {
 
                 } else {
 //                    No Space
-
-
-                }
+                    double moneyDouble = Double.parseDouble(moneyString);
+                    double answerDouble = moneyDouble * aDouble;
+                    String answerString = "Thai Baht ==> "
+                            + Double.toString(answerDouble)+ "THB";
+                    myAlert("Your " + moneyString + " USD", answerString);
+                    editText.setText("");
+                }// If
 
             }   //on click
         });
