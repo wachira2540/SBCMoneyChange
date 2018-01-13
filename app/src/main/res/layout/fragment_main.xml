@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:padding="18dp"
+        android:layout_margin="30dp"
+        android:background="#82ffffff"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <!--Logo-->
     <ImageView
 
@@ -53,15 +61,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <!--Button Cal-->
+        <Button
+            android:id="@+id/btnCalculate"
+            android:background="#ffffff"
+            android:textColor="#943100"
+            android:text="Calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-
-
-
-
-
-
-
-
-
+    </LinearLayout>
 
 </LinearLayout>
